@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border-radius: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="panel" onclick="tikla(event)">
+        <div id="section" onclick="tikla(event)">
+            <div id="container" onclick="tikla(event)">
+                <button id="button" onclick="tikla(event)">Tıkla</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function tikla(event) {
+            event.cancelBubble = true;
+            console.log(event.target.id);
+
+            switch (event.target.id) {
+                case 'panel':
+                    event.target.style = 'background-color: red';
+                    break;
+                case 'section':
+                    event.target.style = 'background-color: green';
+
+                    break;
+                case 'container':
+                    event.target.style = 'background-color: blue';
+                    break;
+                case 'button':
+                    event.target.style = 'background-color: pink';
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

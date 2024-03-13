@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="birthDate" placeholder="Doğum yılınızı girin">
+    <button onclick="calculateAge()">Tamam</button><br>
+    <p><span id="labelAge"></span></p>
+
+
+    <fieldset>
+        <legend>
+            Kullanıcı İşlemleri
+        </legend>
+
+        <input type="text" id="textName" placeholder="Ad ve Soyad">
+        <button onclick="addUser()">Kullanıcı Ekle</button><br><br>
+        <span id="warning"></span>        
+      
+    </fieldset>
+    <fieldset>
+        <legend>Kullanıcı listesi</legend>
+        <ul id="users">
+
+        </ul>
+    </fieldset>
+    <script>
+
+
+        function calculateAge() {
+            let year = document.getElementById('birthDate').value;
+            if (isNaN(year)) {
+                document.getElementById('labelAge').innerText = 'Doğum yılı 4 haneli sayı olmalı'
+            }
+            else {
+                var currentYear = new Date().getFullYear();
+                let age = currentYear - year;
+                //window.alert('yaşınız: ' + age);
+                document.getElementById('labelAge').innerText = age + ' yaşındasınız';
+            }
+        }
+
+        var usernames = [];
+        function addUser() {
+            console.log('add user çalıştı');
+            let name = document.getElementById('textName').value;
+            if (!isNaN(name)) {
+                document.getElementById('warning').innerText = 'Lütfen sadece harf girin!'                
+            } else {
+                usernames.push(name);
+            }
+            
+            showNamesInList(usernames);
+
+        }
+
+        function showNamesInList(values) {
+            var ul = document.getElementById('users');
+            ul.innerHTML ='';
+            for (let index = 0; index < values.length; index++) {
+                const user = values[index];
+                let li = document.createElement('li');
+                li.innerText = user;    
+                ul.append(li);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
