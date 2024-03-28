@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .red {
+            color: red;
+            font-family: 'Calibri';
+        }
+
+        .green {
+            color: green;
+            font-family: 'Lucida Sans';
+        }
+    </style>
 </head>
 
 <body>
@@ -20,11 +31,12 @@
 
         <input type="text" id="textName" placeholder="Ad ve Soyad">
         <button onclick="addUser()">Kullanıcı Ekle</button><br><br>
-        <span id="warning"></span>        
-      
+        <span id="warning"></span>
+
     </fieldset>
     <fieldset>
         <legend>Kullanıcı listesi</legend>
+        <h5 id="usersH5" class="red">Şu anda <span id="usersCount">0</span> kullanıcı var.</h5>
         <ul id="users">
 
         </ul>
@@ -50,23 +62,44 @@
             console.log('add user çalıştı');
             let name = document.getElementById('textName').value;
             if (!isNaN(name)) {
-                document.getElementById('warning').innerText = 'Lütfen sadece harf girin!'                
+                document.getElementById('warning').innerText = 'Lütfen sadece harf girin!'
             } else {
                 usernames.push(name);
             }
-            
+
             showNamesInList(usernames);
+            document.getElementById('textName').value = '';
+            document.getElementById('textName').focus();
 
         }
 
         function showNamesInList(values) {
             var ul = document.getElementById('users');
-            ul.innerHTML ='';
+            var kullaniciSayisi = document.getElementById('usersCount');
+            kullaniciSayisi.innerText = values.length;
+
+            let h5 = document.getElementById('usersH5');
+            // if (values.length % 2 == 1) {
+            //     h5.classList.value = 'green';
+            //     //h5.classList.replace('red', 'green');
+            // }
+            // else {               
+            //    h5.classList.value = 'red';
+            // }
+
+            h5.classList.value = values.length % 2 == 1 ? 'green':'red';
+
+
+
+
+
+
+            ul.innerHTML = '';
             for (let index = 0; index < values.length; index++) {
                 const user = values[index];
-                let li = document.createElement('li');
-                li.innerText = user;    
-                ul.append(li);
+                let listItem = document.createElement('li');
+                listItem.innerText = user;
+                ul.append(listItem);
             }
 
         }

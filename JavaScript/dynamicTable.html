@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dynamic > tr > td{
+            border: 1px solid black;
+            font-size: 10px;
+            font-family:'Trebuchet MS';
+            text-align: center;
+          
+        }
+        #dynamicTable{
+            padding: 5px;
+            border-radius: 20px;
+            background-color:goldenrod;
+            box-shadow: 5px 5px 3px gray;
+        }
+    </style>
+</head>
+
+<body onload="">
+    <fieldset>
+        <legend>Tablo ayarları</legend>
+        <div>
+            <label>Satır sayısı:</label>
+            <input type="number" name="" id="inpRowsCount">
+        </div>
+        <div>
+            <label>Sütun sayısı:</label>
+            <input type="number" name="" id="inpColumnsCount">
+        </div>
+        <button id="btnTablo" onclick="btnTablo_click()">Tabloyu oluştur!</button>
+    </fieldset>
+    <div id="dynamicTable">
+
+    </div>
+    <script>
+
+        function btnTablo_click() {
+            let rowsCount = document.getElementById('inpRowsCount').value;
+            let columnsCount = document.getElementById('inpColumnsCount').value;
+
+            let table = createTable(rowsCount, columnsCount)
+            document.getElementById('dynamicTable').append(table);
+        }
+
+        function createTable(rows, columns) {
+            let table = document.createElement('table');
+            table.classList.add('dynamic');
+            for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
+                let tr = document.createElement('tr');
+                for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
+                    let td = document.createElement('td');
+                    td.innerText = ` Column${columnIndex} - Rows${rowIndex}`;
+                    tr.append(td);
+                }
+                table.append(tr);
+            }
+
+            console.log(table);
+
+            return table;
+        }
+    </script>
+</body>
+
+</html>
