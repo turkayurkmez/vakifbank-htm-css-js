@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr:nth-child(even) {
+            background-color: black;
+            color: white;
+        }
+
+        table tr td {
+            border-style: none;
+        }
+    </style>
+</head>
+
+<body onload="goster()">
+    <table id="kisiler">
+        <thead>
+            <tr>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Yaşı</th>
+                <th>Yaşadığı Yer</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+    <script>
+        let personel = {
+            ad: 'Türkay',
+            soyad: 'Ürkmez',
+            yas: 44,
+            sehir: 'Eskişehir',
+            mezuniyet: 'lisans'
+        };
+
+        console.log(personel);
+        //JSON: JavaScript Object Notation
+        console.log(JSON.stringify(personel));
+        var personeller = [
+            {
+                ad: 'Türkay',
+                soyad: 'Ürkmez',
+                yas: 44,
+                sehir: 'Eskişehir',
+                mezuniyet: 'lisans'
+            },
+            {
+                ad: 'Barış',
+                soyad: 'Taş',
+                yas: 29,
+                sehir: 'İstanbul',
+                mezuniyet: 'yüksek lisans'
+            },
+            {
+                ad: 'Merve',
+                soyad: 'Çınar',
+                yas: 35,
+                sehir: 'İstanbul',
+                mezuniyet: 'doktora'
+            }
+        ];
+
+
+        function goster() {
+            personeller.forEach((element) => {
+                var tr = document.createElement('tr');
+                for (const key in element) {
+                    let td = document.createElement('td');
+                    td.innerText = element[key];
+                    tr.append(td);
+                }
+                // var tdAd = document.createElement('td');
+                // //console.log(element.ad);
+                // tdAd.innerText = element.ad
+
+                // var tdSoyad = document.createElement('td');
+                // tdSoyad.innerText = element.soyad;
+
+                // var tdYas = document.createElement('td');
+                // tdYas.innerText = element.yas;
+
+                // var tdSehir = document.createElement('td');
+                // tdSehir.innerText = element.sehir;
+
+                // tr.append(tdAd);
+                // tr.append(tdSoyad);             
+                // tr.append(tdYas);
+                // tr.append(tdSehir);
+
+                document.getElementById('tableBody').append(tr);
+
+
+            });
+        }
+    </script>
+</body>
+
+</html>
