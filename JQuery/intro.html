@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       li{
+        margin: 10px;
+       }
+    </style>
+</head>
+
+<body>
+
+    <button id="show">Gizle/Göster</button>
+    <div id="onemli">
+        <p>Burada acayip bilgiler yazmaktadır.</p>
+        <p>Burada acayip bilgiler yazmaktadır.</p>
+        <p>Burada acayip bilgiler yazmaktadır.</p>
+    </div>
+    <h2>Başlık</h2>
+    <h2>Deneme</h2>
+    <ul id="menu">
+        <li>Araştırma</li>
+        <li class="kampanya">
+            Edebiyat
+            <ul>
+                <li>Roman</li>
+                <li>Şiir</li>
+            </ul>
+        </li>
+        <li>Felsefe</li>
+
+    </ul>
+    <p id="value"></p>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+
+        /*
+          1. Bul: HTML Dokumanı içinde bir elementi / elementleri bulur
+          2. Değiştir: Element üzerinde değişiklik yapar.
+          3. Dinle: Kullanıcının tetiklediği olayları dinler.
+          4. Konuş: Sunucudan veri çekebilir veya veri gönderebilir.
+          5. Animasyon: HTML üzerinde animasyon yapar.
+        */
+        $(document).ready(function () {
+
+            $('h2').text('Değişti');
+            $('#menu').css('list-style','none');
+            $('#menu > li').css('float','left');
+            $('#menu > li').css('color','brown');
+            $('li:nth-child(odd)').css('font-style','italic');
+            $('li:nth-child(even)').css('font-weight','bold');
+
+            $('#menu').children().last().text('Felsefe');
+            //$('#value').text(value);
+
+
+
+
+            
+
+            $('#show').on('click', function () {
+                $('#onemli').fadeToggle(1000);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
