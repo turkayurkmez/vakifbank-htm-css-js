@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #users {
+            display: none;
+            list-style: none;
+        }
+
+        .user {
+            width: 225px;
+            height: 400px;
+            background-color: dodgerblue;
+            padding: 10px;
+            float: left;
+            margin: 15px;
+            border: 1px solid black;
+            color:white;
+
+        }
+
+        .user h3 {
+            font-family: 'Calibri';
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnUsers">Kullanıcıları getir</button>
+
+    <!-- <div class="user">
+        <h3>Kullanıcı Adı</h3>
+        <p>[Ad] isimli kullanıcının telefonu: [telefon]</p>
+        <p>Eposta: [email]</p>
+        <ul>
+            <li>[address.suite]</li>
+            <li>[address.street]</li>
+            <li>[address.city]</li>
+            <li>[address.zipcode]</li>
+        </ul>
+    </div> -->
+
+
+    <ul id="users"></ul>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            let isDataGetted = false;
+            $('#btnUsers').on('click', function () {
+                if (!isDataGetted) {
+
+                    $.ajax({
+                        url: 'https://jsonplaceholder.typicode.com/users',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            isDataGetted = true;
+                            console.log(data);
+                            var temp = $('#userTemp').html();
+                            var binder = Handlebars.compile(temp);
+                            $.each(data, function (index, element) {
+                                // let li = document.createElement('li');
+                                // li.innerText = `${element.name} (${element.email}) `;
+                                // $('#users').append($(li));
+                                let li = binder(element);
+                                $('#users').append(li);
+
+
+                            });
+
+                            $('#users').show('slow');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+        integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/x-handlebars-template" id="userTemp">
+        <li>
+            <div class="user">
+                <h3>{{ username }}</h3>
+                <p>{{ name }} isimli kullanıcının telefon numarası: {{ phone }} </p>
+                <p>Eposta {{ email }} </p>
+                <ul>
+                   <li>{{address.suite}}</li>
+                   <li>{{address.street}}</li>
+                   <li>{{address.city}}</li>
+                   <li>{{address.zipcode}}</li>
+                </ul>
+               <a href="http://{{website}}">{{company.name}}</a>
+
+                </div>
+        </li>
+    </script>
+
+
+</body>
+
+</html>
