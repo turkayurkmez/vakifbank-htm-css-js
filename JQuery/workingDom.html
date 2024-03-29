@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .kitap {
+            background-color: darkgreen;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            width: 150px;
+            height: 250px;
+            float: left;
+            margin: 20px;
+            box-shadow: 8px 5px 5px black;
+
+
+        }
+
+        a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .yorumlar {
+            display: none;
+        }
+
+        button {
+            margin-top: 15px;
+            background-color: red;
+            color: white;
+            width: 100%;
+
+        }
+
+        .secili {
+            box-shadow: 8px 5px 5px black;
+            background-color: goldenrod;
+            color: brown;
+        }
+
+        .animasyon{
+            position: relative;
+            background-color:green;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="filtre">
+        <button class="yerli">Yerli Yayınlar</button>
+        <button class="yabanci">Yabancı Yayınlar</button>
+
+    </div>
+    <div id="cokSatanlar">
+        <ul id="kitaplar">
+            <li class="kitap yerli" data-fiyat="50">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="50">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci " data-fiyat="50">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci  data-fiyat=" 25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="50">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci  data-fiyat=" 25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="50">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="50">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="50">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="25">
+                <h3>Denizler altında 20.000 Fersah</h3>
+                <p>Jules Verne</p>
+                <a href="#">Yorumları göster</a>
+                <ul class="yorumlar">
+                    <li>Çok güzel</li>
+                    <li>Çeyizim için aldım</li>
+                </ul>
+                <button>Fiyatı Göster</button>
+            </li>
+
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('.kitap').on('click', 'button', function () {
+                let li = $(this).closest('.kitap');
+                let deger = li.data('fiyat');
+                let fiyat = $('<p>' + deger + ' TL</p>');
+                li.append(fiyat);
+                $(this).remove();
+            });
+
+            $('#filtre').on('click', '.yerli', function () {
+                //filtre id'li elementin içinde yer alan  "yerli" isimli class'a sahip butona tıklandığında
+                //tüm class'ı 'yerli' olan kitapları filtreleyin ve sonra bu kitaplara 'seçili' sınıfını ekleyin.
+                $('.kitap').removeClass('secili');
+                $('.kitap').filter('.yerli').addClass('secili');
+            });
+
+            $('#filtre').on('click', '.yabanci', function () {
+                //filtre id'li elementin içinde yer alan  "yerli" isimli class'a sahip butona tıklandığında
+                //tüm class'ı 'yerli' olan kitapları filtreleyin ve sonra bu kitaplara 'seçili' sınıfını ekleyin.
+                $('.kitap').removeClass('secili');
+                $('.kitap').filter('.yabanci').addClass('secili');
+            });
+
+            $('.kitap').on('click', 'a', function (event) {
+                event.preventDefault();
+                let yorumlar = $(this).closest('.kitap').find('.yorumlar');
+                if (yorumlar.is(':hidden')) {
+                    yorumlar.slideDown(1000);
+                    $(this).text('Yorumları Gizle');
+                }
+                else {
+                    yorumlar.slideUp();
+                    $(this).text('Yorumları Göster');
+                }
+            });
+
+            $('.kitap').on('click',function(){
+                $(this).addClass('animasyon');
+                $(this).animate({'top':'-10px'},1000);
+                $(this).animate({'left':'10px'},1000);
+
+                $(this).animate({'background-color':'lightgreen'},1000);
+
+            });
+
+
+
+
+
+
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>
