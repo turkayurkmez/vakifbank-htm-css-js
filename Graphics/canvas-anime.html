@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="box" width="1250" height="1080">
+        <p>Tarayıcınız canvas etiketini desteklemiyor!</p>
+    </canvas>
+    <div id="inputs">
+        <input type="button" value="Top Ekle" id="btnTopEkle">
+        <input type="button" value="Topları Temizle" id="btnTemizle">
+
+    </div>
+    <audio id="top" >
+        <source src="/sounds/boing1.mp3" type="audio/mp3">
+ 
+
+    </audio>
+    <audio id="left" >
+        <source src="/sounds/boing2.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function Top(x, y, dx, dy, radius, fillColor) {
+            this.x = x;
+            this.y = y;
+            this.dx = dx;
+            this.dy = dy;
+            this.radius = radius;
+            this.strokeColor = "black";
+            this.fillColor = fillColor;
+        }
+        var toplar = [];
+        var renkler = ['red', 'yellow', 'pink', 'blue', 'green']
+        /** @type {HTMLCanvasElement}*/
+        var canvas;
+        /** @type {CanvasRenderingContext2D} */
+        var context;
+
+        window.onload = function () {
+
+
+            // let input = document.createElement('input');
+            // input.id = 'textRuntime';
+            // input.type = 'text';
+
+            // let span = document.createElement('span');
+            // span.id = 'labelRunTime';
+            // span.innerText ='Empty';
+            // document.getElementById('inputs').append(input);
+            // document.getElementById('inputs').append(span);
+
+            // input.addEventListener('keyup',function(){
+            //     span.innerText = this.value;
+            // });
+
+
+
+
+
+            canvas = document.getElementById('box');
+            context = canvas.getContext('2d');
+            sahneyiHazirla();
+
+
+        }
+
+        function sahneyiHazirla() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let index = 0; index < toplar.length; index++) {
+                const aktifTop = toplar[index];
+                aktifTop.x += aktifTop.dx;
+                aktifTop.y += aktifTop.dy;
+
+
+
+                if ((aktifTop.x + aktifTop.radius) > canvas.width ||
+                    (aktifTop.x - aktifTop.radius) < 0) {
+                    aktifTop.dx = -aktifTop.dx
+                    let rastgeleIndex =Math.floor(Math.random() * renkler.length);
+                    let renk = renkler[rastgeleIndex];
+                    aktifTop.fillColor = renk;
+                    horizontalCrash();
+
+
+                }
+
+                if ((aktifTop.y) > canvas.height ||
+                    (aktifTop.y - aktifTop.radius) < 0) {
+                    aktifTop.dy = -aktifTop.dy
+                    let rastgeleIndex = Math.floor(Math.random() * renkler.length);
+                    let renk = renkler[rastgeleIndex];
+                    aktifTop.fillColor = renk;
+                    console.log(renk);
+                    console.log(rastgeleIndex);
+                    verticalCrash();
+
+                }
+
+                context.beginPath();
+                context.fillStyle = aktifTop.fillColor;
+                context.strokeStyle = aktifTop.strokeColor;
+                context.lineWidth = 1;
+                context.arc(aktifTop.x, aktifTop.y, aktifTop.radius, 0, 2 * Math.PI);
+                context.fill();
+                context.stroke();
+
+            }
+            setTimeout('sahneyiHazirla()', 20);
+        }
+
+        document.getElementById('btnTopEkle').addEventListener('click', function () {
+            let rndDx = Math.random() * 5;
+            let rndDy = Math.random() * 5;
+
+            var top = new Top(50, 50, rndDx, rndDy, 15, 'pink');
+            toplar.push(top);
+            console.log(toplar.length);
+        });
+
+        function horizontalCrash(){
+            /** @type{HTMLAudioElement}*/
+            var audioElement = document.getElementById('left');
+            audioElement.currentTime = 0;
+            audioElement.play();
+
+        }
+
+        function verticalCrash(){
+            /** @type{HTMLAudioElement}*/
+            var audioElement = document.getElementById('top');
+            audioElement.currentTime = 0;
+            audioElement.play();
+            
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+
+</html>

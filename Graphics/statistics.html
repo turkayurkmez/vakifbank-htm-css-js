@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="range" min="0" max="100" step="1" value="0" id="rngProgress" onchange="showProgress()" />
+    </div>
+    <div>
+        <span id="value">%0</span><br>
+        <progress max="100" value="0" id="prgOfWork"></progress>
+    </div>
+
+    <h3>Şehirlere göre satışlar</h3>
+    <div id="report">
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+      <style>
+        #percent{
+            font-family: 'Impact';
+            font-size: 10px;
+            margin: 5px;
+
+        }
+
+        #report{
+            border-radius: 20px;
+            border: 1px solid black;
+            background-color: silver;
+            padding: 5px;
+            box-shadow: 4px 4px 5px black;
+
+        }
+      </style>  
+    <script>
+        var data = [
+            {
+                sehir: 'İstanbul',
+                adet: 1500
+            },
+            {
+                sehir: 'Çanakkale',
+                adet: 1800
+            },
+            {
+                sehir: 'Eskişehir',
+                adet: 1800
+            }
+        ];
+
+
+        function showProgress() {
+            let value = document.getElementById('rngProgress').value;
+            document.getElementById('prgOfWork').value = value;
+            document.getElementById('value').innerText = `%${value}`;
+        }
+
+        $(document).ready(()=>{
+
+            let totalQuantity = 0;
+            $.each(data, (index,element)=>totalQuantity+=element.adet);
+            $.each(data, (index,element)=>{
+
+                let header = $('<h5>'+element.sehir+'<h5>')
+                let percentage =parseFloat((element.adet / totalQuantity) * 100).toPrecision(2) ;
+                let progress = $('<progress/>');
+                progress.val(percentage);
+                progress.attr('max',100);
+
+                let span = $('<span id="percent"></span>');
+                span.text(`%${percentage}`);
+                $('#report').append(header);
+                $('#report').append(progress);
+                $('#report').append(span);
+                $('#report').append('<br>');
+
+                
+            });
+
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

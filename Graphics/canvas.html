@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="blank" width="750" height="500">
+
+    </canvas>
+    <script>
+        /** @type {HtmlCanvas} */
+        let canvas = document.getElementById('blank');
+       /** @type {CanvasRenderingContext2D} */
+        var context = canvas.getContext('2d');
+        context.strokeStyle = 'blue';
+        context.lineWidth = 10;
+        context.strokeRect(10,10,100,100);
+        context.save();
+
+        context.fillStyle = "red";
+        context.fillRect(10,10,100,100);
+        context.restore();
+        context.fillRect(130,10,100,100);
+        context.strokeRect(130,10,100,100);
+
+
+
+
+    </script>
+</body>
+
+</html>
